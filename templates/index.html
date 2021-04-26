@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+<!--  -->
+<!-- LAYOUT_HEADER -->
+<!--  -->
+
+{% block content %}
+
+
+<main>
+        <h1>URL Shortener</h1>
+        <form id="post-form">
+                {% csrf_token %}
+                <input type="text" name="link" id="link" placeholder="&#xf0c1 Enter URL here">
+                
+                <div class="buttons">
+                        <button type="submit" id="shorten">Shorten <i class="icon-text-width"></i></button>
+                </div>
+        </form>
+        <section id="section"><i class="icon-link"></i><h2></h2></section>
+        <div class="buttons">
+                <button id="copy" onclick="copyNewUrl()">Copy <i class="icon-copy"></i></button>
+                <button id="go" onclick="goNewUrl()">Go <i class="icon-external-link"></i></button>
+        </div>
+</main>
+
+{% endblock %}
+
+<!--  -->
+<!-- LAYOUT_FOOTER -->
+<!--  -->
