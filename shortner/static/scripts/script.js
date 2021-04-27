@@ -1,4 +1,5 @@
 const selector = selector => document.querySelector(selector);
+var uuid;
 
 $(document).on('submit','#post-form', (e) => {
         e.preventDefault();
@@ -11,6 +12,7 @@ $(document).on('submit','#post-form', (e) => {
                         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
                 },
                 success: (data) => {
+                        uuid = data;
                         $('h2').html(`${window.location.host}/${data}`);
                         $('i').css('visibility', 'visible')
                 }
@@ -19,7 +21,7 @@ $(document).on('submit','#post-form', (e) => {
 
 function goNewUrl() {
         if(!selector('h2').textContent) return;
-        window.open(selector('h2').textContent)
+        window.open(uuid);
 }
 
 function copyNewUrl() {
