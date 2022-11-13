@@ -13,7 +13,7 @@ $(document).on('submit','#post-form', (e) => {
                 },
                 success: (data) => {
                         uuid = data;
-                        $('h2').html(`${window.location.host}/${data}`);
+                        $('h2').html(`https://${window.location.host}/${data}`);
                         $('i').css('visibility', 'visible')
                 }
         });
